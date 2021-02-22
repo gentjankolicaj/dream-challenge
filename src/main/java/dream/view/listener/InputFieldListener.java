@@ -1,4 +1,4 @@
-package dream.view.user.listener;
+package dream.view.listener;
 
 import dream.App;
 import dream.view.user.UserView;

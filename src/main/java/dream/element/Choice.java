@@ -3,21 +3,16 @@ package dream.element;
 import javax.swing.*;
 
 public class Choice extends JRadioButton {
-    private boolean isClicked;
 
     public Choice() {
+        super();
+        setSelected(false);
     }
 
     public Choice(boolean isClicked) {
         super();
-        this.isClicked = isClicked;
+        setSelected(isClicked);
     }
 
-    public boolean isClicked() {
-        return isClicked;
-    }
 
-    public void setClicked(boolean clicked) {
-        isClicked = clicked;
-    }
 }

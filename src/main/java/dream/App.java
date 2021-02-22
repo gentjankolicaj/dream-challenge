@@ -10,25 +10,29 @@ import java.awt.*;
  * Hello world!
  */
 public class App {
-    public static int choiceNumber = 0;
-    public static int choiceSetNumber = 0;
+    public static int choiceNumber = 3;
+    public static int choiceSetNumber = 2;
     public static int randomChoiceSetNumber = 2;
 
     public static void main(String[] args) {
-        JFrame jframe = new JFrame();
+        JFrame jFrame = new JFrame();
 
         //Grid layout setting
         GridLayout gridLayout = new GridLayout(1, 2);
-        jframe.setLayout(gridLayout);
+        jFrame.setLayout(gridLayout);
 
-        UserView userView = new UserView(jframe, choiceNumber, choiceSetNumber);
-        ChanceView chanceView = new ChanceView(jframe);
+        UserView userView = new UserView(choiceNumber, choiceSetNumber);
+        ChanceView chanceView = new ChanceView();
 
-        jframe.add(userView);
-        jframe.add(chanceView);
+        //Add button listeners
+        userView.addButtonListeners(chanceView);
 
-        jframe.setSize(new Dimension(800, 600));
-        jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jframe.setVisible(true);
+
+        jFrame.add(userView);
+        jFrame.add(chanceView);
+
+        jFrame.setSize(new Dimension(900, 700));
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setVisible(true);
     }
 }

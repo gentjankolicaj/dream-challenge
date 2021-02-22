@@ -1,4 +1,4 @@
-package dream.view.user.choice;
+package dream.view.chance;
 
 import dream.element.Choice;
 import dream.element.ChoiceSet;
@@ -6,15 +6,14 @@ import dream.element.ChoiceSet;
 import javax.swing.*;
 import java.awt.*;
 
-public class ChoiceAreaView extends JPanel {
-
+public class ChanceAreaView extends JPanel {
     private final ChoiceSet choiceSet;
     private final GridLayout gridLayout;
 
-    public ChoiceAreaView(int numberOfChoices) {
+    public ChanceAreaView(int choiceNumber) {
         super();
-        this.gridLayout = new GridLayout(numberOfChoices, numberOfChoices);
-        this.choiceSet = new ChoiceSet(false, numberOfChoices);
+        this.gridLayout = new GridLayout(choiceNumber, choiceNumber);
+        this.choiceSet = new ChoiceSet(true, choiceNumber);
 
         addChoiceSet();
         this.setLayout(gridLayout);

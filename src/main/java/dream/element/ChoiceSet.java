@@ -1,16 +1,26 @@
 package dream.element;
 
 
+import dream.prob.ProbUtil;
+
 public class ChoiceSet {
     private final Choice[][] choices;
-    private int numberOfChoices;
 
-    public ChoiceSet(int numberOfChoices) {
+    public ChoiceSet(boolean randChoice, int choiceNumber) {
         super();
-        this.choices = produceChoices(numberOfChoices);
+        if (randChoice)
+            this.choices = produceRandomChoices(choiceNumber);
+        else
+            this.choices = produceChoices(choiceNumber);
     }
 
-    private static Choice[][] produceChoices(int numberOfChoices) {
+
+    public Choice[][] getChoices() {
+        return this.choices;
+    }
+
+
+    private Choice[][] produceChoices(int numberOfChoices) {
         Choice[][] array = new Choice[numberOfChoices][numberOfChoices];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
@@ -21,11 +31,14 @@ public class ChoiceSet {
 
     }
 
-    public int getNumberOfChoices() {
-        return this.numberOfChoices;
-    }
+    private Choice[][] produceRandomChoices(int numberOfChoices) {
+        Choice[][] array = new Choice[numberOfChoices][numberOfChoices];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = new Choice(ProbUtil.isSelected());
+            }
+        }
+        return array;
 
-    public Choice[][] getChoices() {
-        return this.choices;
     }
 }

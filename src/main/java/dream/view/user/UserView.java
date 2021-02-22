@@ -2,9 +2,11 @@ package dream.view.user;
 
 
 import dream.App;
+import dream.view.chance.ChanceView;
+import dream.view.listener.GenerateButtonListener;
+import dream.view.listener.InputFieldListener;
 import dream.view.user.choice.ChoiceView;
 import dream.view.user.input.InputView;
-import dream.view.user.listener.InputFieldListener;
 import dream.view.user.print.PrintView;
 
 import javax.swing.*;
@@ -17,7 +19,7 @@ public class UserView extends JPanel {
     private ChoiceView choiceView;
     private JScrollPane scrollPane;
 
-    public UserView(JFrame jframe, int choiceNumber, int choiceSetNumber) {
+    public UserView(int choiceNumber, int choiceSetNumber) {
         super();
         this.gridLayout = new GridLayout(3, 1);
 
@@ -55,4 +57,19 @@ public class UserView extends JPanel {
         this.validate();
     }
 
+    public void addButtonListeners(ChanceView chanceView) {
+        addGenerateButtonListener(chanceView);
+        addExportButtonListener(chanceView);
+    }
+
+    private void addExportButtonListener(ChanceView chanceView) {
+
+    }
+
+    private void addGenerateButtonListener(ChanceView chanceView) {
+        JButton generateButton = this.inputView.getInputButtonView().getGenerateButton();
+        GenerateButtonListener generateButtonListener = new GenerateButtonListener(chanceView, this.inputView);
+
+        generateButton.addActionListener(generateButtonListener);
+    }
 }

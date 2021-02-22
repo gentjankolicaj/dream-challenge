@@ -24,5 +24,7 @@ public class ChoiceView extends JPanel {
         }
     }
 
-
+    public ChoiceAreaView[] getChoiceAreaViews() {
+        return choiceAreaViews;
+    }
 }

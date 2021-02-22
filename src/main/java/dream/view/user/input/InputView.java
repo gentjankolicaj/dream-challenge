@@ -14,7 +14,7 @@ public class InputView extends JPanel {
         super();
         this.gridLayout = new GridLayout(2, 1);
         this.inputFieldView = new InputFieldView(new FieldView("Nr choices :", 0, App.choiceNumber), new FieldView("Nr choice set :", 1, App.choiceSetNumber), new FieldView("Rand choice set :", 2, App.randomChoiceSetNumber));
-        this.inputButtonView = new InputButtonView(new CommandView());
+        this.inputButtonView = new InputButtonView();
 
         this.add(inputFieldView);
         this.add(inputButtonView);

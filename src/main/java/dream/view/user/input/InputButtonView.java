@@ -4,29 +4,45 @@ import javax.swing.*;
 
 public class InputButtonView extends JPanel {
     private final BoxLayout boxLayout;
-    private final JComponent[] components;
+    private JButton generateButton;
+    private JButton exportDataButton;
+    private JLabel nullLabel;
 
-    public InputButtonView(JComponent... jComponents) {
+    public InputButtonView() {
         super();
         this.boxLayout = new BoxLayout(this, BoxLayout.X_AXIS);
-        this.components = jComponents;
+        this.generateButton = new JButton("Generate");
+        this.exportDataButton = new JButton("Export data");
+        this.nullLabel = new JLabel();
 
-        addCurrentComponents();
+        this.add(generateButton);
+        this.add(nullLabel);
+        this.add(exportDataButton);
 
         this.setLayout(boxLayout);
-
     }
 
-    private void addCurrentComponents() {
-        if (components != null && components.length != 0) {
-            for (JComponent jComponent : components)
-                this.add(jComponent);
-        }
+    public JButton getGenerateButton() {
+        return generateButton;
     }
 
-    public JComponent[] getComponents() {
-        return components;
+    public void setGenerateButton(JButton generateButton) {
+        this.generateButton = generateButton;
     }
 
+    public JButton getExportDataButton() {
+        return exportDataButton;
+    }
 
+    public void setExportDataButton(JButton exportDataButton) {
+        this.exportDataButton = exportDataButton;
+    }
+
+    public JLabel getNullLabel() {
+        return nullLabel;
+    }
+
+    public void setNullLabel(JLabel nullLabel) {
+        this.nullLabel = nullLabel;
+    }
 }
