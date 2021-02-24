@@ -1,25 +1,28 @@
 package dream.view.user.input;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class InputButtonView extends JPanel {
-    private final BoxLayout boxLayout;
+    private final GridLayout gridLayout;
     private JButton generateButton;
+    private final JButton searchMatchButton;
     private JButton exportDataButton;
-    private JLabel nullLabel;
 
     public InputButtonView() {
         super();
-        this.boxLayout = new BoxLayout(this, BoxLayout.X_AXIS);
+        this.gridLayout = new GridLayout(1, 3);
+        this.gridLayout.setHgap(5);
+        this.gridLayout.setVgap(40);
         this.generateButton = new JButton("Generate");
-        this.exportDataButton = new JButton("Export data");
-        this.nullLabel = new JLabel();
+        this.exportDataButton = new JButton("Export");
+        this.searchMatchButton = new JButton("Search match");
 
         this.add(generateButton);
-        this.add(nullLabel);
+        this.add(searchMatchButton);
         this.add(exportDataButton);
 
-        this.setLayout(boxLayout);
+        this.setLayout(gridLayout);
     }
 
     public JButton getGenerateButton() {
@@ -38,11 +41,5 @@ public class InputButtonView extends JPanel {
         this.exportDataButton = exportDataButton;
     }
 
-    public JLabel getNullLabel() {
-        return nullLabel;
-    }
 
-    public void setNullLabel(JLabel nullLabel) {
-        this.nullLabel = nullLabel;
-    }
 }

@@ -2,7 +2,6 @@ package dream.view.listener;
 
 import dream.App;
 import dream.view.user.UserView;
-import dream.view.user.input.InputView;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
@@ -10,24 +9,17 @@ import java.awt.event.KeyListener;
 
 public class InputFieldListener implements KeyListener {
 
-    private final InputView inputView;
     private final UserView userView;
 
     private final JTextField choiceField;
     private final JTextField choiceSetField;
 
-    public InputFieldListener(UserView userView, InputView inputView) {
+    public InputFieldListener(UserView userView, JTextField choiceField, JTextField choiceSetField) {
         super();
         this.userView = userView;
-        this.inputView = inputView;
+        this.choiceField = choiceField;
+        this.choiceSetField = choiceSetField;
 
-        //Get text fields
-        this.choiceField = inputView.getInputFieldView().getFieldViews()[0].getTextField();
-        this.choiceSetField = inputView.getInputFieldView().getFieldViews()[1].getTextField();
-
-        //Add listener to text fields
-        choiceField.addKeyListener(this);
-        choiceSetField.addKeyListener(this);
     }
 
 

@@ -19,6 +19,8 @@ public class UserView extends JPanel {
     private ChoiceView choiceView;
     private JScrollPane scrollPane;
 
+    private ChanceView chanceView;
+
     public UserView(int choiceNumber, int choiceSetNumber) {
         super();
         this.gridLayout = new GridLayout(3, 1);
@@ -30,14 +32,27 @@ public class UserView extends JPanel {
         this.choiceView = new ChoiceView(App.choiceNumber, App.choiceSetNumber);
         this.scrollPane = new JScrollPane(choiceView);
 
-        //Create a key listener for input
-        new InputFieldListener(this, inputView);
-
         this.add(inputView);
         this.add(scrollPane);
         this.add(printView);
 
         this.setLayout(gridLayout);
+    }
+
+    public void setChanceView(ChanceView chanceView) {
+        this.chanceView = chanceView;
+    }
+
+    public void addInputFieldListener() {
+        JTextField choiceField = inputView.getInputFieldView().getFieldViews()[0].getTextField();
+        JTextField choiceSetField = inputView.getInputFieldView().getFieldViews()[1].getTextField();
+
+        //Create a key listener for input
+        InputFieldListener inputFieldListener = new InputFieldListener(this, choiceField, choiceSetField);
+
+        //Add listener to keys
+        choiceField.addKeyListener(inputFieldListener);
+        choiceSetField.addKeyListener(inputFieldListener);
     }
 
     public void revalidateUserView(int choiceNumber, int choiceSetNumber) {
@@ -57,9 +72,14 @@ public class UserView extends JPanel {
         this.validate();
     }
 
-    public void addButtonListeners(ChanceView chanceView) {
+
+    public void addButtonListeners() {
         addGenerateButtonListener(chanceView);
         addExportButtonListener(chanceView);
+        addSearchButtonListener(choiceView, chanceView);
+    }
+
+    private void addSearchButtonListener(ChoiceView choiceView, ChanceView chanceView) {
     }
 
     private void addExportButtonListener(ChanceView chanceView) {
@@ -72,4 +92,6 @@ public class UserView extends JPanel {
 
         generateButton.addActionListener(generateButtonListener);
     }
+
+
 }

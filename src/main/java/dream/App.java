@@ -25,7 +25,9 @@ public class App {
         ChanceView chanceView = new ChanceView();
 
         //Add button listeners
-        userView.addButtonListeners(chanceView);
+        userView.setChanceView(chanceView);
+        userView.addInputFieldListener();
+        userView.addButtonListeners();
 
 
         jFrame.add(userView);
