@@ -28,4 +28,8 @@ public class ChanceAreaView extends JPanel {
 
     }
 
+
+    public ChoiceSet getChoiceSet() {
+        return choiceSet;
+    }
 }

@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ChoiceAreaView extends JPanel {
-
     private final ChoiceSet choiceSet;
     private final GridLayout gridLayout;
 
@@ -29,4 +28,7 @@ public class ChoiceAreaView extends JPanel {
 
     }
 
+    public ChoiceSet getChoiceSet() {
+        return choiceSet;
+    }
 }

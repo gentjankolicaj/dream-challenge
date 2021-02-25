@@ -2,24 +2,29 @@ package dream.view.listener;
 
 import dream.view.chance.ChanceAreaView;
 import dream.view.chance.ChanceView;
+import dream.view.user.UserView;
 import dream.view.user.input.FieldView;
 import dream.view.user.input.InputView;
+import dream.view.user.print.PrintView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
 
 public class GenerateButtonListener implements ActionListener {
-    private final ChanceView chanceView;
-    private final InputView inputView;
+    private final UserView userView;
 
-    public GenerateButtonListener(ChanceView chanceView, InputView inputView) {
-        this.chanceView = chanceView;
-        this.inputView = inputView;
+    public GenerateButtonListener(UserView userView) {
+        this.userView = userView;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //Get views
+        InputView inputView = userView.getInputView();
+        ChanceView chanceView = userView.getChanceView();
+
         FieldView[] fieldViews = inputView.getInputFieldView().getFieldViews();
         JTextField choiceField = fieldViews[0].getTextField();
         JTextField randChoiceSetField = fieldViews[2].getTextField();
@@ -39,13 +44,18 @@ public class GenerateButtonListener implements ActionListener {
                 }
                 //todo to fix clean up view bug.
                 chanceView.revalidateChanceView(chanceAreaViews);
-
+                print("'Generate' pressed. " + randChoiceSetValue + " random samples generated.");
             }
 
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
+    }
 
+    private void print(String str) {
+        PrintView printView = userView.getPrintView();
+        JTextArea jTextArea = printView.getTextArea();
+        jTextArea.append(LocalDateTime.now() + " : " + str + "\n");
     }
 }

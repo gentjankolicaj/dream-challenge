@@ -26,7 +26,7 @@ public class App {
 
         //Add button listeners
         userView.setChanceView(chanceView);
-        userView.addInputFieldListener();
+        userView.addInputListener();
         userView.addButtonListeners();
 
 

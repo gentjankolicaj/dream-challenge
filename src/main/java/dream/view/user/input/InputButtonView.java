@@ -4,42 +4,48 @@ import javax.swing.*;
 import java.awt.*;
 
 public class InputButtonView extends JPanel {
-    private final GridLayout gridLayout;
-    private JButton generateButton;
-    private final JButton searchMatchButton;
-    private JButton exportDataButton;
+    private final GridBagLayout gridBagLayout;
+    private final GridBagConstraints gridBagConstraints;
+    private final JButton generateButton;
+    private final JButton searchButton;
+    private final JButton exportButton;
 
     public InputButtonView() {
         super();
-        this.gridLayout = new GridLayout(1, 3);
-        this.gridLayout.setHgap(5);
-        this.gridLayout.setVgap(40);
+        this.gridBagLayout = new GridBagLayout();
+        this.gridBagConstraints = new GridBagConstraints();
+        this.setLayout(gridBagLayout);
+
         this.generateButton = new JButton("Generate");
-        this.exportDataButton = new JButton("Export");
-        this.searchMatchButton = new JButton("Search match");
+        this.exportButton = new JButton("Export to pdf");
+        this.searchButton = new JButton("Search match");
 
-        this.add(generateButton);
-        this.add(searchMatchButton);
-        this.add(exportDataButton);
+        this.gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+        this.gridBagConstraints.gridx = 0;
+        this.gridBagConstraints.gridy = 0;
+        this.add(generateButton, gridBagConstraints);
 
-        this.setLayout(gridLayout);
+        this.gridBagConstraints.gridx = 1;
+        this.gridBagConstraints.gridy = 0;
+        this.add(searchButton, gridBagConstraints);
+
+
+        this.gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+        this.gridBagConstraints.gridx = 0;
+        this.gridBagConstraints.gridy = 1;
+        this.add(exportButton, gridBagConstraints);
+
     }
 
     public JButton getGenerateButton() {
         return generateButton;
     }
 
-    public void setGenerateButton(JButton generateButton) {
-        this.generateButton = generateButton;
-    }
-
     public JButton getExportDataButton() {
-        return exportDataButton;
+        return exportButton;
     }
 
-    public void setExportDataButton(JButton exportDataButton) {
-        this.exportDataButton = exportDataButton;
+    public JButton getSearchButton() {
+        return searchButton;
     }
-
-
 }

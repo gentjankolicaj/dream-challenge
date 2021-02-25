@@ -8,9 +8,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class InputFieldListener implements KeyListener {
-
     private final UserView userView;
-
     private final JTextField choiceField;
     private final JTextField choiceSetField;
 
@@ -58,7 +56,7 @@ public class InputFieldListener implements KeyListener {
         }
 
         userView.revalidateUserView(nrChoices, nrChoiceSet);
-
     }
+
 
 }

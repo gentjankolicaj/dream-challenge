@@ -5,6 +5,7 @@ import dream.App;
 import dream.view.chance.ChanceView;
 import dream.view.listener.GenerateButtonListener;
 import dream.view.listener.InputFieldListener;
+import dream.view.listener.SearchButtonListener;
 import dream.view.user.choice.ChoiceView;
 import dream.view.user.input.InputView;
 import dream.view.user.print.PrintView;
@@ -43,7 +44,23 @@ public class UserView extends JPanel {
         this.chanceView = chanceView;
     }
 
-    public void addInputFieldListener() {
+    public InputView getInputView() {
+        return inputView;
+    }
+
+    public PrintView getPrintView() {
+        return printView;
+    }
+
+    public ChoiceView getChoiceView() {
+        return choiceView;
+    }
+
+    public ChanceView getChanceView() {
+        return chanceView;
+    }
+
+    public void addInputListener() {
         JTextField choiceField = inputView.getInputFieldView().getFieldViews()[0].getTextField();
         JTextField choiceSetField = inputView.getInputFieldView().getFieldViews()[1].getTextField();
 
@@ -74,22 +91,25 @@ public class UserView extends JPanel {
 
 
     public void addButtonListeners() {
-        addGenerateButtonListener(chanceView);
-        addExportButtonListener(chanceView);
-        addSearchButtonListener(choiceView, chanceView);
+        addGenerateButtonListener();
+        addExportButtonListener();
+        addSearchButtonListener();
     }
 
-    private void addSearchButtonListener(ChoiceView choiceView, ChanceView chanceView) {
+
+    private void addSearchButtonListener() {
+        JButton searchButton = this.inputView.getInputButtonView().getSearchButton();
+        SearchButtonListener searchButtonListener = new SearchButtonListener(this);
+        searchButton.addActionListener(searchButtonListener);
     }
 
-    private void addExportButtonListener(ChanceView chanceView) {
+    private void addExportButtonListener() {
 
     }
 
-    private void addGenerateButtonListener(ChanceView chanceView) {
+    private void addGenerateButtonListener() {
         JButton generateButton = this.inputView.getInputButtonView().getGenerateButton();
-        GenerateButtonListener generateButtonListener = new GenerateButtonListener(chanceView, this.inputView);
-
+        GenerateButtonListener generateButtonListener = new GenerateButtonListener(this);
         generateButton.addActionListener(generateButtonListener);
     }
 

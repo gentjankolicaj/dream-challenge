@@ -24,4 +24,8 @@ public class ChanceView extends JPanel {
         this.validate();
     }
 
+
+    public ChanceAreaView[] getChanceAreaViews() {
+        return chanceAreaViews;
+    }
 }
