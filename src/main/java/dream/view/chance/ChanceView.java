@@ -1,8 +1,10 @@
 package dream.view.chance;
 
+import dream.view.MyView;
+
 import javax.swing.*;
 
-public class ChanceView extends JPanel {
+public class ChanceView extends MyView {
     private ChanceAreaView[] chanceAreaViews;
 
     public ChanceView() {

@@ -1,8 +1,10 @@
 package dream.view.user.choice;
 
+import dream.view.MyView;
+
 import javax.swing.*;
 
-public class ChoiceView extends JPanel {
+public class ChoiceView extends MyView {
     private ChoiceAreaView[] choiceAreaViews;
 
 

@@ -1,8 +1,10 @@
 package dream.view.user.print;
 
+import dream.view.MyView;
+
 import javax.swing.*;
 
-public class PrintView extends JPanel {
+public class PrintView extends MyView {
     private final BoxLayout boxLayout;
     private final JScrollPane jScrollPane;
     private final JTextArea textArea;

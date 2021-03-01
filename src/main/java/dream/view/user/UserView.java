@@ -2,6 +2,7 @@ package dream.view.user;
 
 
 import dream.App;
+import dream.view.MyView;
 import dream.view.chance.ChanceView;
 import dream.view.listener.GenerateButtonListener;
 import dream.view.listener.InputFieldListener;
@@ -13,7 +14,7 @@ import dream.view.user.print.PrintView;
 import javax.swing.*;
 import java.awt.*;
 
-public class UserView extends JPanel {
+public class UserView extends MyView {
     private final GridLayout gridLayout;
     private final InputView inputView;
     private final PrintView printView;
