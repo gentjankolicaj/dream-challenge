@@ -44,7 +44,7 @@ public class GenerateButtonListener implements ActionListener {
                 }
                 //todo to fix clean up view bug.
                 chanceView.revalidateChanceView(chanceAreaViews);
-                print("'Generate' pressed. " + randChoiceSetValue + " random samples generated.");
+                print("--> Generated [ " + randChoiceSetValue + " ] random sets.");
             }
 
         } catch (Exception ex) {

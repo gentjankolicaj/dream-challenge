@@ -3,7 +3,6 @@ package dream.view.user.print;
 import dream.view.MyView;
 
 import javax.swing.*;
-import java.awt.*;
 import java.time.LocalDateTime;
 
 public class PrintView extends MyView {
@@ -16,8 +15,6 @@ public class PrintView extends MyView {
         super();
         this.boxLayout = new BoxLayout(this, BoxLayout.Y_AXIS);
         this.textArea = new JTextArea();
-        this.textArea.setForeground(Color.RED);
-
         this.jScrollPane = new JScrollPane(textArea);
 
         this.add(jScrollPane);

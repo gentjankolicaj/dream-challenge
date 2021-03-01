@@ -4,16 +4,20 @@ import dream.element.Choice;
 import dream.element.ChoiceSet;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class ChoiceAreaView extends JPanel {
     private final ChoiceSet choiceSet;
     private final GridLayout gridLayout;
+    private final Border border;
 
     public ChoiceAreaView(int numberOfChoices) {
         super();
         this.gridLayout = new GridLayout(numberOfChoices, numberOfChoices);
         this.choiceSet = new ChoiceSet(false, numberOfChoices);
+        this.border = BorderFactory.createLineBorder(Color.black);
+        this.setBorder(border);
 
         addChoiceSet();
         this.setLayout(gridLayout);

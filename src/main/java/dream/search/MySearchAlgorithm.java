@@ -50,7 +50,7 @@ public class MySearchAlgorithm<MyView> implements MySearch<MyView> {
                             throw new MatrixException("Matrix dimensions not matching.", userChoices, randomChoices);
 
                         if (matchFlag) {
-                            print(printView, "Match found.User choice : " + i + " , Random choice : " + j);
+                            print(printView, "--> Match found.User choice : " + i + " , Random choice : " + j);
                         }
                     }
                 }

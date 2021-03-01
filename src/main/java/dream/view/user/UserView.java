@@ -85,11 +85,10 @@ public class UserView extends MyView {
         //Add new components
         this.add(scrollPane);
         this.add(printView);
-        this.printView.printText(" Choices & Sets => [" + choiceNumber + "," + choiceSetNumber + " ]");
+        this.printView.printText(" Choices & sets [ " + choiceNumber + "," + choiceSetNumber + " ]");
 
         //We need to revalidate the component tree because of changes
         this.validate();
-
     }
 
 
