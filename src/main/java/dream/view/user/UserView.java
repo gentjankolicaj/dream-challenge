@@ -68,12 +68,12 @@ public class UserView extends MyView {
         //Create a key listener for input
         InputFieldListener inputFieldListener = new InputFieldListener(this, choiceField, choiceSetField);
 
-        //Add listener to keys
-        choiceField.addKeyListener(inputFieldListener);
-        choiceSetField.addKeyListener(inputFieldListener);
+        //Add listener to documents
+        choiceField.getDocument().addDocumentListener(inputFieldListener);
+        choiceSetField.getDocument().addDocumentListener(inputFieldListener);
     }
 
-    public void revalidateUserView(int choiceNumber, int choiceSetNumber) {
+    public void revalidateView(int choiceNumber, int choiceSetNumber) {
         //Remove components
         this.remove(scrollPane);
         this.remove(printView);
@@ -85,9 +85,11 @@ public class UserView extends MyView {
         //Add new components
         this.add(scrollPane);
         this.add(printView);
+        this.printView.printText(" Choices & Sets => [" + choiceNumber + "," + choiceSetNumber + " ]");
 
         //We need to revalidate the component tree because of changes
         this.validate();
+
     }
 
 
