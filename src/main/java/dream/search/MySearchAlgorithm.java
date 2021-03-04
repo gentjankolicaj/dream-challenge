@@ -6,7 +6,7 @@ import dream.exception.ChanceException;
 import dream.exception.ChoiceException;
 import dream.exception.MatrixException;
 import dream.view.chance.ChanceAreaView;
-import dream.view.chance.ChanceView;
+import dream.view.chance.ChanceSubView;
 import dream.view.user.UserView;
 import dream.view.user.choice.ChoiceAreaView;
 import dream.view.user.choice.ChoiceView;
@@ -21,13 +21,15 @@ public class MySearchAlgorithm<MyView> implements MySearch<MyView> {
     @Override
     public final void perform(MyView... args) {
         UserView userView = (UserView) args[0];
-        ChanceView chanceView = userView.getChanceView();
+        ChanceSubView chanceSubView = userView.getChanceSubView();
+
         ChoiceView choiceView = userView.getChoiceView();
         PrintView printView = userView.getPrintView();
-        if (choiceView != null && chanceView != null) {
+
+        if (choiceView != null && chanceSubView != null) {
             try {
                 ChoiceSet[] userChoiceSets = getUserChoiceSet(choiceView);
-                ChoiceSet[] randomChoiceSets = getRandomChoiceSet(chanceView);
+                ChoiceSet[] randomChoiceSets = getRandomChoiceSet(chanceSubView);
                 for (int i = 0; i < userChoiceSets.length; i++) {
                     Choice[][] userChoices = userChoiceSets[i].getChoices();
                     for (int j = 0; j < randomChoiceSets.length; j++) {
@@ -117,8 +119,8 @@ public class MySearchAlgorithm<MyView> implements MySearch<MyView> {
             throw new ChoiceException("Choice areas not found.");
     }
 
-    private ChoiceSet[] getRandomChoiceSet(ChanceView chanceView) throws ChanceException {
-        ChanceAreaView[] chanceAreaViews = chanceView.getChanceAreaViews();
+    private ChoiceSet[] getRandomChoiceSet(ChanceSubView chanceSubView) throws ChanceException {
+        ChanceAreaView[] chanceAreaViews = chanceSubView.getChanceAreaViews();
         if (chanceAreaViews != null && chanceAreaViews.length != 0) {
             int chanceAreasNumber = chanceAreaViews.length;
             ChoiceSet[] choiceSets = new ChoiceSet[chanceAreasNumber];

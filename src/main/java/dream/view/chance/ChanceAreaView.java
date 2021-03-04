@@ -4,31 +4,32 @@ import dream.element.Choice;
 import dream.element.ChoiceSet;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class ChanceAreaView extends JPanel {
     private final ChoiceSet choiceSet;
     private final GridLayout gridLayout;
-    private final Border border;
 
     public ChanceAreaView(int choiceNumber) {
         super();
         this.gridLayout = new GridLayout(choiceNumber, choiceNumber);
         this.choiceSet = new ChoiceSet(true, choiceNumber);
-        this.border = BorderFactory.createLineBorder(Color.black);
-        this.setBorder(border);
+        this.setLayout(gridLayout);
+        this.setBorder(BorderFactory.createLineBorder(Color.black));
 
         addChoiceSet();
-        this.setLayout(gridLayout);
     }
+
 
 
     private void addChoiceSet() {
         Choice[][] choices = choiceSet.getChoices();
         for (Choice[] array : choices)
-            for (Choice choice : array)
+            for (Choice choice : array) {
+                //Set horizontal alignment for radio buttons
+                choice.setHorizontalAlignment(JRadioButton.CENTER);
                 this.add(choice);
+            }
 
     }
 

@@ -7,12 +7,12 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Hello world!
+ * @author Gentjan Kolicaj
  */
 public class App {
-    public static int choiceNumber = 3;
-    public static int choiceSetNumber = 2;
-    public static int randomChoiceSetNumber = 2;
+    public static int choiceNumber = 4;
+    public static int choiceSetNumber = 5;
+    public static int randomChoiceSetNumber = 23;
 
     public static void main(String[] args) {
         JFrame jFrame = new JFrame();
@@ -22,18 +22,18 @@ public class App {
         jFrame.setLayout(gridLayout);
 
         UserView userView = new UserView(choiceNumber, choiceSetNumber);
-        ChanceView chanceView = new ChanceView();
+        ChanceView chanceView = new ChanceView(choiceNumber, randomChoiceSetNumber);
 
         //Add button listeners
         userView.setChanceView(chanceView);
         userView.addInputListener();
         userView.addButtonListeners();
 
-
         jFrame.add(userView);
         jFrame.add(chanceView);
 
         jFrame.setSize(new Dimension(900, 700));
+        jFrame.setResizable(false);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setVisible(true);
     }

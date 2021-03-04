@@ -1,6 +1,5 @@
 package dream.view.listener;
 
-import dream.view.chance.ChanceAreaView;
 import dream.view.chance.ChanceView;
 import dream.view.user.UserView;
 import dream.view.user.input.FieldView;
@@ -21,6 +20,10 @@ public class GenerateButtonListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        perform();
+    }
+
+    private void perform() {
         //Get views
         InputView inputView = userView.getInputView();
         ChanceView chanceView = userView.getChanceView();
@@ -30,21 +33,16 @@ public class GenerateButtonListener implements ActionListener {
         JTextField randChoiceSetField = fieldViews[2].getTextField();
 
         String choiceContent = choiceField.getText();
-        String randChoiceSetContent = randChoiceSetField.getText();
+        String randSetContent = randChoiceSetField.getText();
 
-        int choiceValue = 0;
-        int randChoiceSetValue = 0;
+        int choiceNumber = 0;
+        int randSetNumber = 0;
         try {
-            choiceValue = Integer.parseInt(choiceContent);
-            randChoiceSetValue = Integer.parseInt(randChoiceSetContent);
-            if (choiceValue > 0 && randChoiceSetValue > 0) {
-                ChanceAreaView[] chanceAreaViews = new ChanceAreaView[randChoiceSetValue];
-                for (int i = 0; i < randChoiceSetValue; i++) {
-                    chanceAreaViews[i] = new ChanceAreaView(choiceValue);
-                }
-                //todo to fix clean up view bug.
-                chanceView.revalidateChanceView(chanceAreaViews);
-                print("--> Generated [ " + randChoiceSetValue + " ] random sets.");
+            choiceNumber = Integer.parseInt(choiceContent);
+            randSetNumber = Integer.parseInt(randSetContent);
+            if (choiceNumber > 0 && randSetNumber > 0) {
+                chanceView.updateView(choiceNumber, randSetNumber);
+                print("--> Generated [ " + randSetNumber + " ] random sets.");
             }
 
         } catch (Exception ex) {
@@ -58,4 +56,5 @@ public class GenerateButtonListener implements ActionListener {
         JTextArea jTextArea = printView.getTextArea();
         jTextArea.append(LocalDateTime.now() + " : " + str + "\n");
     }
+
 }

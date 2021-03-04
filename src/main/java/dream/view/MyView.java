@@ -2,5 +2,6 @@ package dream.view;
 
 import javax.swing.*;
 
-public abstract class MyView extends JPanel {
+public class MyView extends JPanel {
+
 }

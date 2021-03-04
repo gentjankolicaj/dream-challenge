@@ -19,7 +19,6 @@ public class ChoiceSet {
         return this.choices;
     }
 
-
     private Choice[][] produceChoices(int numberOfChoices) {
         Choice[][] array = new Choice[numberOfChoices][numberOfChoices];
         for (int i = 0; i < array.length; i++) {
@@ -36,6 +35,9 @@ public class ChoiceSet {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 array[i][j] = new Choice(ProbUtil.isSelected());
+
+                //make radio button not enabled
+                array[i][j].setEnabled(false);
             }
         }
         return array;

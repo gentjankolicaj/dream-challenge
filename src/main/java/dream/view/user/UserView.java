@@ -3,6 +3,7 @@ package dream.view.user;
 
 import dream.App;
 import dream.view.MyView;
+import dream.view.chance.ChanceSubView;
 import dream.view.chance.ChanceView;
 import dream.view.listener.GenerateButtonListener;
 import dream.view.listener.InputFieldListener;
@@ -41,6 +42,12 @@ public class UserView extends MyView {
         this.setLayout(gridLayout);
     }
 
+
+    public ChanceView getChanceView() {
+        return this.chanceView;
+    }
+
+    //View methods
     public void setChanceView(ChanceView chanceView) {
         this.chanceView = chanceView;
     }
@@ -57,20 +64,8 @@ public class UserView extends MyView {
         return choiceView;
     }
 
-    public ChanceView getChanceView() {
-        return chanceView;
-    }
-
-    public void addInputListener() {
-        JTextField choiceField = inputView.getInputFieldView().getFieldViews()[0].getTextField();
-        JTextField choiceSetField = inputView.getInputFieldView().getFieldViews()[1].getTextField();
-
-        //Create a key listener for input
-        InputFieldListener inputFieldListener = new InputFieldListener(this, choiceField, choiceSetField);
-
-        //Add listener to documents
-        choiceField.getDocument().addDocumentListener(inputFieldListener);
-        choiceSetField.getDocument().addDocumentListener(inputFieldListener);
+    public ChanceSubView getChanceSubView() {
+        return chanceView.getChanceSubView();
     }
 
     public void revalidateView(int choiceNumber, int choiceSetNumber) {
@@ -92,6 +87,19 @@ public class UserView extends MyView {
     }
 
 
+    //Listener methods
+    public void addInputListener() {
+        JTextField choiceField = inputView.getInputFieldView().getFieldViews()[0].getTextField();
+        JTextField choiceSetField = inputView.getInputFieldView().getFieldViews()[1].getTextField();
+
+        //Create a key listener for input
+        InputFieldListener inputFieldListener = new InputFieldListener(this, choiceField, choiceSetField);
+
+        //Add listener to documents
+        choiceField.getDocument().addDocumentListener(inputFieldListener);
+        choiceSetField.getDocument().addDocumentListener(inputFieldListener);
+    }
+
     public void addButtonListeners() {
         addGenerateButtonListener();
         addExportButtonListener();
@@ -105,14 +113,14 @@ public class UserView extends MyView {
         searchButton.addActionListener(searchButtonListener);
     }
 
-    private void addExportButtonListener() {
-
-    }
-
     private void addGenerateButtonListener() {
         JButton generateButton = this.inputView.getInputButtonView().getGenerateButton();
         GenerateButtonListener generateButtonListener = new GenerateButtonListener(this);
         generateButton.addActionListener(generateButtonListener);
+    }
+
+    private void addExportButtonListener() {
+
     }
 
 

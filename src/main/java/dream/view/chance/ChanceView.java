@@ -3,31 +3,37 @@ package dream.view.chance;
 import dream.view.MyView;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class ChanceView extends MyView {
-    private ChanceAreaView[] chanceAreaViews;
+    private ChanceSubView chanceSubView;
+    private JScrollPane jScrollPane;
 
-    public ChanceView() {
+    public ChanceView(int choiceNumber, int randSetNumber) {
         super();
+        //Initial chance components
+        this.chanceSubView = new ChanceSubView(choiceNumber, randSetNumber);
+        this.jScrollPane = new JScrollPane(chanceSubView);
+        this.jScrollPane.setPreferredSize(new Dimension(450, 650));
+        this.add(jScrollPane, BorderLayout.CENTER);
     }
 
-    public void revalidateChanceView(ChanceAreaView[] chanceAreaViews) {
-        if (this.chanceAreaViews != null) {
-            for (ChanceAreaView chanceAreaView : this.chanceAreaViews)
-                this.remove(chanceAreaView);
-        }
+    //update chance view with new components
+    public void updateView(int choiceNumber, int randSetNumber) {
+        this.remove(jScrollPane);
 
-        this.chanceAreaViews = chanceAreaViews;
-        for (ChanceAreaView chanceAreaView : this.chanceAreaViews) {
-            this.add(chanceAreaView);
-            this.add(new JLabel());
-        }
+        this.chanceSubView = new ChanceSubView(choiceNumber, randSetNumber);
+        this.jScrollPane = new JScrollPane(chanceSubView);
+        this.jScrollPane.setPreferredSize(new Dimension(450, 650));
 
+        this.add(jScrollPane, BorderLayout.CENTER);
         this.validate();
     }
 
 
-    public ChanceAreaView[] getChanceAreaViews() {
-        return chanceAreaViews;
+    public ChanceSubView getChanceSubView() {
+        return chanceSubView;
     }
+
+
 }
