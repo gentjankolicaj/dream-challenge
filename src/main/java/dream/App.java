@@ -32,6 +32,7 @@ public class App {
         jFrame.add(userView);
         jFrame.add(chanceView);
 
+        jFrame.setTitle("Dream challenge");
         jFrame.setSize(new Dimension(900, 700));
         jFrame.setResizable(false);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
