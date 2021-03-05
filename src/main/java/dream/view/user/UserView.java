@@ -5,10 +5,7 @@ import dream.App;
 import dream.view.MyView;
 import dream.view.chance.ChanceSubView;
 import dream.view.chance.ChanceView;
-import dream.view.listener.ClearButtonListener;
-import dream.view.listener.GenerateButtonListener;
-import dream.view.listener.InputFieldListener;
-import dream.view.listener.SearchButtonListener;
+import dream.view.listener.*;
 import dream.view.user.choice.ChoiceView;
 import dream.view.user.input.InputView;
 import dream.view.user.print.PrintView;
@@ -122,7 +119,9 @@ public class UserView extends MyView {
     }
 
     private void addExportButtonListener() {
-
+        JButton exportButton = this.inputView.getInputButtonView().getExportButton();
+        ExportButtonListener exportButtonListener = new ExportButtonListener(this, chanceView);
+        exportButton.addActionListener(exportButtonListener);
     }
 
     private void addClearButtonListener() {

@@ -4,14 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FieldView extends JPanel {
-    private final int index;
     private final GridLayout gridLayout;
     private JLabel label;
     private JTextField textField;
 
-    public FieldView(String labelText, final int index, int defaultValue) {
+    public FieldView(String labelText, int defaultValue) {
         super();
-        this.index = index;
         this.gridLayout = new GridLayout(2, 1);
         this.label = new JLabel(labelText);
         this.textField = new JTextField();

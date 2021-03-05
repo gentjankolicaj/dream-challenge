@@ -7,7 +7,7 @@ public class DirectoryHelper {
 
     public static String chooseDirectory(JPanel jPanel) {
         JFileChooser jFileChooser = new JFileChooser();
-        jFileChooser.setCurrentDirectory(new File("."));
+        jFileChooser.setCurrentDirectory(new File("user.directory"));
         jFileChooser.setDialogTitle("Choose file destination directory");
         jFileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         jFileChooser.setAcceptAllFileFilterUsed(false);

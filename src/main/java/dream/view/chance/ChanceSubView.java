@@ -17,6 +17,23 @@ public class ChanceSubView extends JPanel {
         addChanceAreas();
     }
 
+
+    private void addChanceAreas() {
+        int rows = getRows(chanceAreaViews);
+        int columns = getColumns(chanceAreaViews);
+        this.gridLayout = new GridLayout(rows, columns);
+        this.gridLayout.setVgap(5);
+        this.gridLayout.setHgap(5);
+        this.setLayout(gridLayout);
+        for (ChanceAreaView chanceAreaView : this.chanceAreaViews)
+            this.add(chanceAreaView, BorderLayout.CENTER);
+    }
+
+    public ChanceAreaView[] getChanceAreaViews() {
+        return chanceAreaViews;
+    }
+
+
     private static int getRows(ChanceAreaView[] chanceAreaViews) {
         if (chanceAreaViews != null && chanceAreaViews.length != 0) {
             int length = chanceAreaViews.length;
@@ -36,21 +53,5 @@ public class ChanceSubView extends JPanel {
         } else
             return 0;
     }
-
-    private void addChanceAreas() {
-        int rows = getRows(chanceAreaViews);
-        int columns = getColumns(chanceAreaViews);
-        this.gridLayout = new GridLayout(rows, columns);
-        this.gridLayout.setVgap(5);
-        this.gridLayout.setHgap(5);
-        this.setLayout(gridLayout);
-        for (ChanceAreaView chanceAreaView : this.chanceAreaViews)
-            this.add(chanceAreaView, BorderLayout.CENTER);
-    }
-
-    public ChanceAreaView[] getChanceAreaViews() {
-        return chanceAreaViews;
-    }
-
 
 }
