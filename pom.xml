@@ -41,6 +41,13 @@
       <version>2.0.22</version>
     </dependency>
 
+    <!--For table drawing -->
+    <dependency>
+      <groupId>com.github.vandeseer</groupId>
+      <artifactId>easytable</artifactId>
+      <version>0.8.2</version>
+    </dependency>
+
 
   </dependencies>
 
