@@ -19,7 +19,7 @@ public class ChoiceAreaView extends JPanel {
         this.border = BorderFactory.createLineBorder(Color.black);
         this.setBorder(border);
 
-        addChoiceSet();
+        this.addChoiceSet();
         this.setLayout(gridLayout);
     }
 

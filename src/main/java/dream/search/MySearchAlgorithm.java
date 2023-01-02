@@ -81,7 +81,7 @@ public class MySearchAlgorithm<MyView> implements MySearch<MyView> {
     }
 
     /**
-     * Warning : Not safe against non square arrays (non matrixes) because there is no guarantee that 2d arrays are matrixes
+     * Warning : Not safe against non-square arrays (non matrix) because there is no guarantee that 2d arrays are matrix
      * Use only when 2D array is matrix
      *
      * @param userChoices

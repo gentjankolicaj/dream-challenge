@@ -13,6 +13,4 @@ public class Choice extends JRadioButton {
         super();
         setSelected(isClicked);
     }
-
-
 }

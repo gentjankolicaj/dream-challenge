@@ -11,10 +11,8 @@ public class InputFieldView extends JPanel {
         this.boxLayout = new BoxLayout(this, BoxLayout.X_AXIS);
         this.fieldViews = fieldViews;
 
-        addFieldViews();
-
+        this.addFieldViews();
         this.setLayout(boxLayout);
-
     }
 
     private void addFieldViews() {
@@ -27,6 +25,5 @@ public class InputFieldView extends JPanel {
     public FieldView[] getFieldViews() {
         return this.fieldViews;
     }
-
 
 }

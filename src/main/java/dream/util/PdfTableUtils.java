@@ -1,4 +1,4 @@
-package dream.pdf;
+package dream.util;
 
 import dream.view.chance.ChanceAreaView;
 import dream.view.user.choice.ChoiceAreaView;
@@ -15,7 +15,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class PdfTableHelper {
+public class PdfTableUtils {
 
     public static MultiField0 drawInputTable(PDDocument pdDocument, int[] inputArray) {
         try {

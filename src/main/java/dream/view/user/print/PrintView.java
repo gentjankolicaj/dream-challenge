@@ -1,11 +1,11 @@
 package dream.view.user.print;
 
-import dream.view.MyView;
+import dream.view.ParentView;
 
 import javax.swing.*;
 import java.time.LocalDateTime;
 
-public class PrintView extends MyView {
+public class PrintView extends ParentView {
     private final BoxLayout boxLayout;
     private final JScrollPane jScrollPane;
     private final JTextArea textArea;

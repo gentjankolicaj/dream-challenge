@@ -1,16 +1,16 @@
 package dream.view.user.choice;
 
-import dream.view.MyView;
+import dream.view.ParentView;
 
 import javax.swing.*;
 
-public class ChoiceView extends MyView {
+public class ChoiceView extends ParentView {
     private ChoiceAreaView[] choiceAreaViews;
 
 
     public ChoiceView(int choiceNumber, int choiceSetNumber) {
         super();
-        paintChoiceAreaView(choiceNumber, choiceSetNumber);
+        this.paintChoiceAreaView(choiceNumber, choiceSetNumber);
     }
 
 

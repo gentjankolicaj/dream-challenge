@@ -1,8 +1,11 @@
 package dream.view.user.input;
 
+import lombok.Data;
+
 import javax.swing.*;
 import java.awt.*;
 
+@Data
 public class FieldView extends JPanel {
     private final GridLayout gridLayout;
     private JLabel label;
@@ -17,28 +20,9 @@ public class FieldView extends JPanel {
         //Initial default value is 2
         this.textField.setText(String.valueOf(defaultValue));
 
-
         this.add(label);
         this.add(textField);
-
         this.setLayout(gridLayout);
     }
-
-    public JLabel getLabel() {
-        return label;
-    }
-
-    public void setLabel(JLabel label) {
-        this.label = label;
-    }
-
-    public JTextField getTextField() {
-        return textField;
-    }
-
-    public void setTextField(JTextField textField) {
-        this.textField = textField;
-    }
-
 
 }

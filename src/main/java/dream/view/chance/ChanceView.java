@@ -1,11 +1,11 @@
 package dream.view.chance;
 
-import dream.view.MyView;
+import dream.view.ParentView;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class ChanceView extends MyView {
+public class ChanceView extends ParentView {
     private ChanceSubView chanceSubView;
     private JScrollPane jScrollPane;
 

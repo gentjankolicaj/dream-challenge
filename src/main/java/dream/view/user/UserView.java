@@ -1,8 +1,8 @@
 package dream.view.user;
 
 
-import dream.App;
-import dream.view.MyView;
+import dream.Application;
+import dream.view.ParentView;
 import dream.view.chance.ChanceSubView;
 import dream.view.chance.ChanceView;
 import dream.view.listener.*;
@@ -13,7 +13,7 @@ import dream.view.user.print.PrintView;
 import javax.swing.*;
 import java.awt.*;
 
-public class UserView extends MyView {
+public class UserView extends ParentView {
     private final GridLayout gridLayout;
     private final InputView inputView;
     private final PrintView printView;
@@ -30,7 +30,7 @@ public class UserView extends MyView {
         this.inputView = new InputView();
 
         //Initial choice values are from static config
-        this.choiceView = new ChoiceView(App.choiceNumber, App.choiceSetNumber);
+        this.choiceView = new ChoiceView(Application.choiceNumber, Application.choiceSetNumber);
         this.scrollPane = new JScrollPane(choiceView);
 
         this.add(inputView);

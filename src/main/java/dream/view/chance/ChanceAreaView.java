@@ -16,8 +16,7 @@ public class ChanceAreaView extends JPanel {
         this.choiceSet = new ChoiceSet(true, choiceNumber);
         this.setLayout(gridLayout);
         this.setBorder(BorderFactory.createLineBorder(Color.black));
-
-        addChoiceSet();
+        this.addChoiceSet();
     }
 
 

@@ -1,6 +1,9 @@
-package dream.prob;
+package dream.util;
 
-public class ProbUtil {
+public class ProbabilityUtils {
+
+    private ProbabilityUtils() {
+    }
 
     public static boolean isSelected() {
         int maxBorder = (int) (Math.random() * 10);

@@ -9,7 +9,7 @@ import java.awt.*;
 /**
  * @author Gentjan Kolicaj
  */
-public class App {
+public class Application {
     public static int choiceNumber = 4;
     public static int choiceSetNumber = 5;
     public static int randomChoiceSetNumber = 23;

@@ -1,9 +1,14 @@
-package dream.directory;
+package dream.util;
+
+import dream.exception.ChoiceException;
 
 import javax.swing.*;
 import java.io.File;
 
-public class DirectoryHelper {
+public class DirectoryUtils {
+
+    private DirectoryUtils() {
+    }
 
     public static String chooseDirectory(JPanel jPanel) {
         JFileChooser jFileChooser = new JFileChooser();
@@ -16,13 +21,9 @@ public class DirectoryHelper {
         jFileChooser.setApproveButtonToolTipText("Save file at...");
 
         if (jFileChooser.showOpenDialog(jPanel) == JFileChooser.APPROVE_OPTION) {
-            /**  System.out.println("Current directory "+jFileChooser.getCurrentDirectory());
-             System.out.println("Selected file "+jFileChooser.getSelectedFile());
-             System.out.println("Choose mode "+jFileChooser.getFileSelectionMode());
-             */
             return jFileChooser.getSelectedFile().getPath();
         } else
-            return null;
+            throw new ChoiceException("Directory not chosen.");
     }
 
 }

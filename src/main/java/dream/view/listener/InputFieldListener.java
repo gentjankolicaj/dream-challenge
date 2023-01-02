@@ -1,6 +1,6 @@
 package dream.view.listener;
 
-import dream.App;
+import dream.Application;
 import dream.view.user.UserView;
 
 import javax.swing.*;
@@ -42,17 +42,17 @@ public class InputFieldListener implements DocumentListener {
         int nrChoiceSet = 0;
         try {
             nrChoices = Integer.parseInt(content0);
-            App.choiceNumber = nrChoices;
+            Application.choiceNumber = nrChoices;
         } catch (Exception ex) {
-            App.choiceNumber = 0;
+            Application.choiceNumber = 0;
         }
 
         String content1 = choiceSetField.getText();
         try {
             nrChoiceSet = Integer.parseInt(content1);
-            App.choiceSetNumber = nrChoiceSet;
+            Application.choiceSetNumber = nrChoiceSet;
         } catch (Exception ex) {
-            App.choiceSetNumber = 0;
+            Application.choiceSetNumber = 0;
         }
         userView.revalidateView(nrChoices, nrChoiceSet);
     }

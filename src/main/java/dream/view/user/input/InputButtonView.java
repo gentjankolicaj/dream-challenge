@@ -1,8 +1,11 @@
 package dream.view.user.input;
 
+import lombok.Getter;
+
 import javax.swing.*;
 import java.awt.*;
 
+@Getter
 public class InputButtonView extends JPanel {
     private final GridLayout gridLayout;
     private final JButton generateButton;
@@ -28,21 +31,5 @@ public class InputButtonView extends JPanel {
         this.add(exportButton);
         this.add(clearButton);
 
-    }
-
-    public JButton getGenerateButton() {
-        return generateButton;
-    }
-
-    public JButton getSearchButton() {
-        return searchButton;
-    }
-
-    public JButton getExportButton() {
-        return exportButton;
-    }
-
-    public JButton getClearButton() {
-        return clearButton;
     }
 }

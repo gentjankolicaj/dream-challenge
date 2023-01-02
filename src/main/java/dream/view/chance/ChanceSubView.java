@@ -14,7 +14,7 @@ public class ChanceSubView extends JPanel {
         for (int i = 0; i < randSetNumber; i++)
             this.chanceAreaViews[i] = new ChanceAreaView(choiceNumber);
 
-        addChanceAreas();
+        this.addChanceAreas();
     }
 
 
